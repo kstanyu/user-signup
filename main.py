@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 
 from signup_info_checks import *
 
@@ -61,9 +61,17 @@ def signup_validation():
         email = ""
          
     if  not username_error and not password_error and not verify_password and not email_error:
-        return "ok"
+        return render_template("homepage.html", username = username)
+      # return redirect(url_for("home_page"))
     else: 
         return render_template("index.html", username_error = username_error,password_error = password_error, verify_password_error = verify_password, email_error = email_error, username = username,email = email)    
+
+
+#@app.route("/home_page", methods = )
+#def home_page():
+#    username = request.args.get("username")
+#    return render_template("homepage.html", username = username)
+
 
 
 
