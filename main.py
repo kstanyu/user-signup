@@ -62,7 +62,7 @@ def signup_validation():
          
     if  not username_error and not password_error and not verify_password and not email_error:
         return render_template("homepage.html", username = username)
-      # return redirect(url_for("home_page"))
+     
     else: 
         return render_template("index.html", username_error = username_error,password_error = password_error, verify_password_error = verify_password, email_error = email_error, username = username,email = email)    
 
